@@ -1,9 +1,13 @@
 #include <stdio.h>
-#include <stdbool.h>
+// #include <stdbool.h>
 #include <string.h>
-#include <math.h>
+// #include <math.h>
 
-void hello(char[], int); // func prototype
+// void hello(char[], int); // func prototype
+
+void sort(int[], int);
+
+void printArray(int[], int);
 
 int main (){
 
@@ -115,15 +119,70 @@ int main (){
     //         printf("Please enter valid grades!");
     // }
 
-    char name[] = "Bro";
-    int age = 21;
+    // char name[] = "Bro";
+    // int age = 21;
 
-    hello(name, age); // having a func proto determins the input count and type
+    // hello(name, age); // having a func proto determins the input count and type
+
+    // char string1[] = "Rayhan";
+    // char string2[] = "Marrero";
+
+    // strcat(string1, string2); // concatinates
+    // strncat(string1, string2, 2); //appends n char from string2
+    // strcpy(string1, string2); // copy str 2 to str 1
+    // strncpy(string1, string2, 1); // copys n chars from str2 to str1
+
+    // printf("%s", string1);
+
+    // int res = strlen(string1); // returns the len of str
+    // res = strcmp(string1, string2);
+    // res = strncmp(string1, string2, 1);
+
+    // printf("%d", res);
+
+    // for(int i = 10; i >= 1; i--) {
+    //     printf("%d\n", i);
+    // }
+
+    // char name[25];
+    // printf("\nWhats your name? ");
+    // fgets(name, 25, stdin);
+
+    // name[strlen(name) - 1] = '\0';
+
+    // printf("Hello %s", name);
+
+    int array[] = {5, 4, 8, 9, 6, 7, 1, 3};
+    int size = sizeof(array)/sizeof(array[0]);
+
+    sort(array, size);
+
+    printArray(array, size);
 
     return 0;
 }
 
-void hello(char name[], int age) {
-    printf("\nHello %s", name);    
-    printf("\nYou are %d years old", age);    
+// void hello(char name[], int age) {
+//     printf("\nHello %s", name);    
+//     printf("\nYou are %d years old", age); 
+// }
+
+
+// bubble sort
+void sort(int array[], int size) {
+    for (int i = 0; i < size - 1; i++){
+        for (int j = 0; j < size - i - 1; j++){
+            if(array[j] > array[j+1]) {
+                int temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+
+void printArray(int array[], int size) {
+    for (int i = 0; i < size; i++){
+        printf("%d", array[i]);
+    }
 }
